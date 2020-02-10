@@ -17,13 +17,12 @@ routineA:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
 	move $t0, $a0
-	move $t1, $a0
 	li $t2, 2
 	mult $t0, $t2
 	mflo $s1
 
 	li $t3, 3
-	mult $a0, $t3
+	mult $a1, $t3
 	mflo $a0
 	jal routineB
 
@@ -42,7 +41,7 @@ main:
 	jal routineA
 	move $s0, $v0
 	li $v0, 1
-	move $a0, $v0
+	move $a0, $s0
 	syscall
 
 exit:
